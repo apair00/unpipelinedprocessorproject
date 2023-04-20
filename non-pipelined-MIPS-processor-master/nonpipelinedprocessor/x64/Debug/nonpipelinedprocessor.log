@@ -1,0 +1,6 @@
+﻿  Instructions.cpp
+  nonpipelinedprocessor.cpp
+  Generating Code...
+C:\Users\paira\OneDrive\School\Spring 2023\non-pipelined-MIPS-processor-master\nonpipelinedprocessor\nonpipelinedprocessor.cpp(87): warning C4715: 'ReadFromFile': not all control paths return a value
+C:\Users\paira\OneDrive\School\Spring 2023\non-pipelined-MIPS-processor-master\nonpipelinedprocessor\Instructions.cpp(139): warning C4715: 'Instruction::execute': not all control paths return a value
+  nonpipelinedprocessor.vcxproj -> C:\Users\paira\OneDrive\School\Spring 2023\non-pipelined-MIPS-processor-master\x64\Debug\nonpipelinedprocessor.exe
