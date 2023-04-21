@@ -12,9 +12,15 @@ using namespace std;
 
 void PrintCycle(ofstream &output, int &cCount, int iCount, Instruction* Inst) {
     for (int i = 0; i < Inst->list.size(); i++) {
-        output << "C#" << cCount << " I" << iCount << " " << Inst->list[i] << endl;
+        output << "C#" << cCount << " I" << iCount << "-" << Inst->list[i] << endl;
         cCount++;
     }
+}
+void PrintNonZeroCellsReg(int array[], int arraysize, ostream& output) {
+    for (int i = 0; i < arraysize; i++)if (array[i] != 0)output << "R" << i << " " << array[i] << endl;
+}
+void PrintNonZeroCellsMem(int array[], int arraysize, ostream& output) {
+    for (int i = 0; i < arraysize; i++)if (array[i] != 0)output << i << " " << array[i] << endl;
 }
 
 void PrintNonZeroCellsReg(int array[],int arraysize, ofstream &output) {
@@ -108,18 +114,18 @@ int main()
 
         output.open(outputfile);
       
-
+        cout << "Assembly Code" << endl;
         int NumInstructions = InstructionArray[0]->ObjectCount;
         for (int i=0;i<NumInstructions;i++)InstructionArray[i]->print(output);//print program in assembly
 
-        output << endl << endl << endl << "-----BEFORE EXECUTION-----"<<endl;
-        output << "REGISTERS" << endl;                                         // print register and memory
-        PrintNonZeroCellsReg(Registers,32, output);
-        output << "MEMORY" << endl;
-        PrintNonZeroCellsMem(MEMORY, 32, output);
-        output << endl << endl << endl;
+        cout << endl << endl << endl << "-----BEFORE EXECUTION-----" << endl;
+        cout << "REGISTERS" << endl;                                         // print register and memory
+        PrintNonZeroCellsReg(Registers,32, cout);
+        cout << "MEMORY" << endl;
+        PrintNonZeroCellsMem(MEMORY, 32, cout);
+        cout << endl << endl << endl;
 
-        output << "-----AFTER EXECUTION-----" << endl;
+        cout << "-----AFTER EXECUTION-----" << endl;
         
         int iCount = 1;//instruction count
         int cCount = 1;//cycle count
@@ -127,6 +133,7 @@ int main()
         int PC = 0;//InstructionArray[0]->execute(Registers, MEMORY);//execute first instruction and update PC
         int p = PC;//used for printing after execution
 
+        //printing cycles
         do{        
            
             PC = InstructionArray[PC]->execute(Registers, MEMORY);//execute instruction and update PC
@@ -149,11 +156,15 @@ int main()
 
 
         output << "REGISTERS" << endl;
+        cout << "REGISTERS" << endl;
         PrintNonZeroCellsReg(Registers, 32, output);
+        PrintNonZeroCellsReg(Registers, 32, cout);
         output << "MEMORY" << endl;                      // print register and memory
+        cout << "MEMORY" << endl;
         PrintNonZeroCellsMem(MEMORY, 32, output);
-        output << endl << endl << endl;
-        cout << "PROGRAM COMPLETED SUCCESSFULLY!!!" << endl << endl << endl;
+        PrintNonZeroCellsMem(MEMORY, 32, cout);
+        //output << endl << endl << endl;
+        cout << endl <<"PROGRAM COMPLETED SUCCESSFULLY!!!" << endl << endl << endl;
 
         output.close();
     }

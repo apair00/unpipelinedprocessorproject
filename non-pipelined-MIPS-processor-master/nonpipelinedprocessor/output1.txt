@@ -1,20 +1,24 @@
-0         lw   r2, 0(r1)
-1         add  r4, r2, r3
-2         sw   r4, 0(r1)
-3         bne  r0, r4, 5
-4         addi r1, r2, -9
-5         add  r1, r1, r3
+0         addi r1, r1, 1
+1         add  r2, r2, r2
+2         addi r3, r0, 8
+3         beq  r3, r2, 6
+4         addi r3, r0, 10
+5         bne  r1, r3, 1
+6         addi r1, r0, 10
+7         addi r3, r0, 4
+8         sw   r1, 0(r3)
+9         addi r3, r0, 8
+10         sw   r2, 0(r3)
 
 
 
 -----BEFORE EXECUTION-----
 REGISTERS
-R1 16
-R3 42
-R5 8
+R1 1
+R2 2
 MEMORY
-8 40
-16 60
+4 10
+8 15
 
 
 
@@ -22,32 +26,68 @@ MEMORY
 C#1 I1 IF
 C#2 I1 ID
 C#3 I1 EX
-C#4 I1 MEM
-C#5 I1 WB
-C#6 I2 IF
-C#7 I2 ID
-C#8 I2 EX
-C#9 I2 WB
-C#10 I3 IF
-C#11 I3 ID
-C#12 I3 EX
-C#13 I3 MEM
-C#14 I4 IF
-C#15 I4 ID
-C#16 I4 EX
-C#17 I5 IF
-C#18 I5 ID
-C#19 I5 EX
-C#20 I5 WB
+C#4 I1 WB
+C#5 I2 IF
+C#6 I2 ID
+C#7 I2 EX
+C#8 I2 WB
+C#9 I3 IF
+C#10 I3 ID
+C#11 I3 EX
+C#12 I3 WB
+C#13 I4 IF
+C#14 I4 ID
+C#15 I4 EX
+C#16 I5 IF
+C#17 I5 ID
+C#18 I5 EX
+C#19 I5 WB
+C#20 I6 IF
+C#21 I6 ID
+C#22 I6 EX
+C#23 I7 IF
+C#24 I7 ID
+C#25 I7 EX
+C#26 I7 WB
+C#27 I7 EX
+C#28 I7 WB
+C#29 I8 IF
+C#30 I8 ID
+C#31 I8 EX
+C#32 I8 WB
+C#33 I8 EX
+C#34 I8 WB
+C#35 I9 IF
+C#36 I9 ID
+C#37 I9 EX
+C#38 I9 EX
+C#39 I10 IF
+C#40 I10 ID
+C#41 I10 EX
+C#42 I10 WB
+C#43 I11 IF
+C#44 I11 ID
+C#45 I11 EX
+C#46 I11 WB
+C#47 I12 IF
+C#48 I12 ID
+C#49 I12 EX
+C#50 I12 MEM
+C#51 I13 IF
+C#52 I13 ID
+C#53 I13 EX
+C#54 I13 WB
+C#55 I14 IF
+C#56 I14 ID
+C#57 I14 EX
+C#58 I14 MEM
 REGISTERS
-R1 58
-R2 60
-R3 42
-R4 102
-R5 8
+R1 10
+R2 8
+R3 8
 MEMORY
-8 40
-16 102
+4 10
+8 8
 
 
 
